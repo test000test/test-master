@@ -4,12 +4,15 @@ import com.example.registrationform.entity.User;
 import com.example.registrationform.service.AdminService;
 import com.example.registrationform.service.PostService;
 import com.example.registrationform.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
@@ -30,7 +33,7 @@ public class PageController {
 
     // Registration page
     @GetMapping("/registrationPage")
-    public String registrationPage() {
+    public String registrationPage(@ModelAttribute("user") User user) {
         return "registrationPage";
     }
 

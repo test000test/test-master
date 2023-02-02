@@ -7,14 +7,14 @@
 <body>
 <h1>Registration form</h1>
 <div>
-    <form th:action="@{/registrationForm}" method="post">
+    <form th:action="@{/registrationForm}" method="post" th:object="${user}">
         <p th:text="${usernameError}"/>
         <label for="username">Username</label>
-        <input type="text" name="username" id="username">
-<!--        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">invalid username</p>-->
-        <!--        <p th:if="${#fields.hasErrors('password')}">invalid password</p>-->
+        <input type="text" id="username" name="username">
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
         <label for="password">Password</label>
         <input type="text" name="password" id="password">
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
         <input type="submit" value="Registration">
     </form>
 </div>
