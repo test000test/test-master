@@ -1,19 +1,14 @@
 package com.example.registrationform.service;
 
-import com.example.registrationform.entity.Role;
 import com.example.registrationform.entity.User;
+import com.example.registrationform.enums.RoleEnum;
 import com.example.registrationform.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
 
 
 @Service
@@ -32,7 +27,7 @@ public class UserService implements UserDetailsService {
 
         user.setUsername(user.getUsername());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(Collections.singleton(new Role(2L, "ROLE_USER")));
+        user.setRole(RoleEnum.ROLE_USER);
         userRepository.save(user);
         return true;
     }

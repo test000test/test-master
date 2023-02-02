@@ -19,7 +19,7 @@
             <td th:text="${user.id}"></td>
             <td th:text="${user.username}"></td>
             <td th:text="${user.password}"></td>
-            <td th:each="role : ${user.roles}">
+            <td th:each="role : ${user.role}">
                 <span th:text="${role.name}"/>
             </td>
             <td>

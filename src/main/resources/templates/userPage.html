@@ -24,7 +24,7 @@
 </div>
 
 <h1 th:text="Hello + ' ' + ${user.username}"></h1>
-<div th:each="userRole : ${user.roles}">
+<div th:each="userRole : ${user.role}">
     <a th:if="${userRole.name} == ROLE_ADMIN" th:href="@{/adminPage}">Admin page</a>
 </div>
 <div>
