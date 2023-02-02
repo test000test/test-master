@@ -40,9 +40,9 @@
 
 <div class="container">
     <div>
-        <h3>Your posts</h3>
+        <h2>Your posts</h2>
         <div th:each="post : ${posts}">
-            <h3 th:text="${post.name}"></h3>
+            <h3 class="post_title" th:text="${post.name}"></h3>
             <p th:text="${post.description}"></p>
             <span>Post created </span>
             <span th:each="user : ${post.author}">

@@ -1,6 +1,7 @@
 package com.example.registrationform.service;
 
 import com.example.registrationform.entity.Post;
+import com.example.registrationform.entity.User;
 import com.example.registrationform.repository.PostRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,10 @@ public class PostService {
     // Show posts by author id
     public List<Post> showAllPostsByAuthorId(Long id) {
         return postRepository.findPostsByAuthorId(id);
+    }
+
+    // Show post by id
+    public Post showPostById(Long id) {
+        return postRepository.findPostById(id);
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -29,7 +29,6 @@
                     <div class="form">
                         <form name="f" th:action="@{/}" method="post">
                             <fieldset>
-
                                 <label for="username">Username</label>
                                 <input type="text" id="username" name="username"/>
                                 <label for="password">Password</label>
@@ -52,7 +51,9 @@
         <div class="row">
             <div class="col-12 posts">
                 <div class="post col-4" th:each="post : ${posts}">
-                    <h3 th:text="${post.name}"></h3>
+                    <h2 class="post_title">
+                        <a class="post__title-link" th:href="@{/postPage/{id}(id=${post.id})}" th:text="${post.name}"></a>
+                    </h2>
                     <p th:text="${post.description}"></p>
                     <span>Post created </span>
                     <span th:each="user : ${post.author}">

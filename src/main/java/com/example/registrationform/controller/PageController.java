@@ -54,4 +54,12 @@ public class PageController {
         model.addAttribute("posts", postService.showAllPostsByAuthorId(id));
         return "userPage";
     }
+
+    // Post page
+    @GetMapping("/postPage/{id}")
+    public String postPage(@PathVariable Long id, User user, Model model) {
+        model.addAttribute("users", user);
+        model.addAttribute("post", postService.showPostById(id));
+        return "postPage";
+    }
 }

@@ -33,9 +33,6 @@ public class User implements UserDetails {
 //    @Size(min = 4, max = 20)
     private String password;
 
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    private Set<Role> roles;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private RoleEnum role;
